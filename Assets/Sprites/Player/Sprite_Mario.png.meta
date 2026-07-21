@@ -306,7 +306,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite_Mario_0
+      name: MarioIdle
       rect:
         serializedVersion: 2
         x: 3
@@ -328,7 +328,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_1
+      name: MarioWalk1
       rect:
         serializedVersion: 2
         x: 20
@@ -350,7 +350,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_2
+      name: MarioWalk2
       rect:
         serializedVersion: 2
         x: 37
@@ -482,7 +482,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_8
+      name: MarioJump
       rect:
         serializedVersion: 2
         x: 144
@@ -504,7 +504,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_9
+      name: MarioFall
       rect:
         serializedVersion: 2
         x: 167
@@ -1663,8 +1663,11 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Sprite_Mario_0: 4638078165498462608
-      Sprite_Mario_1: 7535359878243092818
+      MarioFall: 3387244394707617170
+      MarioIdle: 4638078165498462608
+      MarioJump: -5672653749854861051
+      MarioWalk1: 7535359878243092818
+      MarioWalk2: -3905991941800648080
       Sprite_Mario_10: 8537440539389071336
       Sprite_Mario_11: 1357806328429647872
       Sprite_Mario_12: -598077030875622236
@@ -1675,7 +1678,6 @@ TextureImporter:
       Sprite_Mario_17: -8647316737487248356
       Sprite_Mario_18: 4567098361401889599
       Sprite_Mario_19: 7479211179968422096
-      Sprite_Mario_2: -3905991941800648080
       Sprite_Mario_20: -1941499065591448453
       Sprite_Mario_21: -4629119407898994041
       Sprite_Mario_22: -5511660270334715914
@@ -1722,8 +1724,6 @@ TextureImporter:
       Sprite_Mario_6: 5693412132100505836
       Sprite_Mario_60: 1622122130505264950
       Sprite_Mario_7: -1236749345658543323
-      Sprite_Mario_8: -5672653749854861051
-      Sprite_Mario_9: 3387244394707617170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
