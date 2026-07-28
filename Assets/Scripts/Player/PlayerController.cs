@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     private float jumpForce = 5f;
     [SerializeField]
     private int maxJumpCount = 2;
+    [SerializeField]
+    private LayerMask groundLayer;
+    [SerializeField]
+    private float groundCheckRadius = 0.02f;
     #endregion
 
     #region Component References
@@ -22,27 +26,11 @@ public class PlayerController : MonoBehaviour
     private Collider2D col;
     private SpriteRenderer sr;
     private Animator anim;
+    //private GroundCheck check;
+    private GroundCheck1 check;
     #endregion
-
-    #region Ground Check Stuff
-    // Ground check variables that are set in the inspector
-    [SerializeField]
-    private LayerMask groundLayer;
-    [SerializeField]
-    private float groundCheckRadius = 0.2f;
-
-    // Ground check position is calculated based on the collider's bounds
-    private Vector2 groundCheckPos => CalculateGroundCheckPos();
-    private bool isGrounded;
+    
     private int jumpCount = 0;
-
-    // Foot position helper function to calculate the ground check position based on the collider's bounds
-    private Vector2 CalculateGroundCheckPos()
-    {
-        Bounds bounds = col.bounds;
-        return new Vector2(bounds.center.x, bounds.min.y);
-    }
-    #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -52,6 +40,11 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<Collider2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        //check = GetComponent<GroundCheck>();
+        //check.Init(col, rb);
+
+        check = new GroundCheck1(col, rb, groundLayer, groundCheckRadius);
 
         rb.linearVelocity = Vector2.zero;
 
@@ -68,10 +61,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.linearVelocityY <= 0)
-        {
-            isGrounded = Physics2D.OverlapCircle(groundCheckPos, groundCheckRadius, groundLayer);
-        }
+        bool isGroundedThisFrame = check.CheckGround();
 
         float horizontalInput = Input.GetAxis("Horizontal");
 
@@ -84,14 +74,13 @@ public class PlayerController : MonoBehaviour
             if (jumpCount < maxJumpCount)
             {
                 jumpCount++;
-                isGrounded = false;
                 rb.linearVelocityY = 0f;
                 rb.AddForceY(jumpForce, ForceMode2D.Impulse);
                 Debug.Log("Jump Count: " + jumpCount.ToString() + " Max Jumps: " + maxJumpCount.ToString());
             }
         }
 
-        if (isGrounded)
+        if (isGroundedThisFrame && rb.linearVelocityY <= 0)
         {
             jumpCount = 0;
         }
@@ -99,15 +88,15 @@ public class PlayerController : MonoBehaviour
         SpriteFlip(horizontalInput);
 
         // Update animator parameters
-        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isGrounded", isGroundedThisFrame);
         anim.SetFloat("horizontalInput", Mathf.Abs(horizontalInput));
     }
 
-    private void SpriteFlip(float horizontalInput) => sr.flipX = (horizontalInput < 0);
-    //{
-    //    if (sr.flipX && horizontalInput > 0 || !sr.flipX && horizontalInput < 0)
-    //    {
-    //        sr.flipX = !sr.flipX;
-    //    }
-    //}
+    private void SpriteFlip(float horizontalInput)
+    {
+        if (sr.flipX && horizontalInput > 0 || !sr.flipX && horizontalInput < 0)
+        {
+            sr.flipX = !sr.flipX;
+        }
+    }
 }
