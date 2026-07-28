@@ -15,4 +15,40 @@ public class Projectile : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().linearVelocity = velocity;
     }
+
+
+    //collision detection functions - one of the two colliding bodies has to be a dynamic rigidbody for these functions to be called
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Edge")
+        {
+            Debug.Log("Projectile hit the ground!");
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
+    }
+
+    //collision detection functions for trigger colliders - less restrictions on colliding bodies because these colliders do not block collisions - but they are still useful for things like pickups (hint hint)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+    }
 }
