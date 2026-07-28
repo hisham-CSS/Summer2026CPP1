@@ -61,15 +61,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AnimatorClipInfo[] clipInfo = anim.GetCurrentAnimatorClipInfo(0);
         bool isGroundedThisFrame = check.CheckGround();
 
+        //input checks
         float horizontalInput = Input.GetAxis("Horizontal");
+        bool jumpInput = Input.GetButtonDown("Jump");
+        bool fireInput = Input.GetButtonDown("Fire1");
 
+
+        //movement along x axis
         float moveX = horizontalInput * speed;
-
         rb.linearVelocityX = moveX;
 
-        if (Input.GetButtonDown("Jump"))
+        //jump along y axis
+        if (jumpInput)
         {
             if (jumpCount < maxJumpCount)
             {
@@ -80,9 +86,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        //if we are grounded while we are not falling
         if (isGroundedThisFrame && rb.linearVelocityY <= 0)
         {
             jumpCount = 0;
+        }
+
+        if (clipInfo[0].clip.name == "Fire" && isGroundedThisFrame)
+        {
+            rb.linearVelocityX = 0;
         }
 
         SpriteFlip(horizontalInput);
@@ -90,6 +102,7 @@ public class PlayerController : MonoBehaviour
         // Update animator parameters
         anim.SetBool("isGrounded", isGroundedThisFrame);
         anim.SetFloat("horizontalInput", Mathf.Abs(horizontalInput));
+        if (fireInput) anim.SetTrigger("Fire");
     }
 
     private void SpriteFlip(float horizontalInput)
