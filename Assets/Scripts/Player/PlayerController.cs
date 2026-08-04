@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using UnityEngine;
 
 /// <summary>
@@ -31,6 +32,71 @@ public class PlayerController : MonoBehaviour
     #endregion
     
     private int jumpCount = 0;
+
+    public int maxLives = 9;
+
+
+    //C++ style getters and setters - these are properties in C# - they are a way to encapsulate the access to a variable - they can have logic in them, and can be read-only or write-only
+    //public void SetLives(int value)
+    //{
+    //    if (value > maxLives)
+    //    {
+    //        maxLives = value;
+    //    }
+    //    else if (value < 0)
+    //    {
+    //        lives = 0;
+    //        //game over logic happens here
+    //    }
+    //    else if (value < lives)
+    //    {
+    //        lives = value;
+    //        //respawn logic happens here
+    //    }
+    //    else
+    //    {
+    //        lives = value;
+    //    }
+    //}
+
+    //public int GetLives()
+    //{
+    //    return lives;
+    //}
+
+
+    //C# style getters and setters - properties - they do the same thing as the above C++ style getters and setters, but they are more concise and easier to read - they are also more flexible, as they can have logic in them, and can be read-only or write-only
+
+    private int _lives = 3;
+    public int Lives
+    {
+        get => _lives;
+        set
+        {
+            if (value > maxLives)
+            {
+                maxLives = value;
+            }
+            else if (value < 0)
+            {
+                _lives = 0;
+                //game over logic happens here
+            }
+            else if (value < _lives)
+            {
+                _lives = value;
+                //respawn logic happens here
+                Debug.Log("Respawn logic happens here");
+            }
+            else
+            {
+                _lives = value;
+            }
+
+            Debug.Log("Lives: " + _lives.ToString() + " Max Lives: " + maxLives.ToString());
+
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
