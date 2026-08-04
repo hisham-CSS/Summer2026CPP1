@@ -429,7 +429,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DonutPlains1_DONE_12
+      name: 1up
       rect:
         serializedVersion: 2
         x: 241
@@ -486,9 +486,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      1up: -6400644745172546573
       DonutPlains1_DONE_10: -4155499301291857916
       DonutPlains1_DONE_11: -6150482773385901676
-      DonutPlains1_DONE_12: -6400644745172546573
       DonutPlains1_DONE_13: -1617794307008389237
       DonutPlains1_DONE_2: -6223913005026926526
       DonutPlains1_DONE_3: -8251548219702976207

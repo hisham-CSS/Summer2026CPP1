@@ -25,6 +25,7 @@ public class SimplePickup : MonoBehaviour
                 case PickupType.JumpBoost:
                     // Implement jump boost logic here
                     Debug.Log("Picked up Jump Boost!");
+                    player.StartJumpForceChange();
                     break;
             }
             // Destroy the pickup after it has been collected
