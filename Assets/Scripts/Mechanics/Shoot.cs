@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Shoot : MonoBehaviour
@@ -13,6 +14,8 @@ public class Shoot : MonoBehaviour
     // Derived left shot velocity, which is the same as initShotVelocity but with a negative x component
     private Vector2 leftShotVelocity;
 
+    public Action<Vector2> OnShotFired;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,11 +51,14 @@ public class Shoot : MonoBehaviour
         {
             curProjectile = Instantiate(projectilePrefab, spawnPointRight.position, Quaternion.identity);
             curProjectile.SetVelocity(initShotVelocity);
+            OnShotFired?.Invoke(initShotVelocity);
         }
         else
         {
             curProjectile = Instantiate(projectilePrefab, spawnPointLeft.position, Quaternion.identity);
             curProjectile.SetVelocity(leftShotVelocity);
-        }    
+            OnShotFired?.Invoke(leftShotVelocity);
+        }
+        
     }
 }

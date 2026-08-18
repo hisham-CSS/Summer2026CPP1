@@ -9026,15 +9026,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_311
+      name: EnemyProjectile
       rect:
         serializedVersion: 2
         x: 801
         y: 349
         width: 7
         height: 7
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -17313,6 +17313,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      EnemyProjectile: 1399857234451397031
       KoopaDeath: -8320605450497437263
       KoopaSquish: -6086775892676988321
       KoopaTurnAround: -3308117943003608857
@@ -17556,7 +17557,6 @@ TextureImporter:
       Sprite_Enemies_309: 8180186173101439042
       Sprite_Enemies_31: 2429667765408189453
       Sprite_Enemies_310: 871425751312165238
-      Sprite_Enemies_311: 1399857234451397031
       Sprite_Enemies_312: 4680981744009050467
       Sprite_Enemies_313: 4202031185503153718
       Sprite_Enemies_314: -3963532326083668439

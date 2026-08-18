@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     //private GroundCheck check;
     private GroundCheck1 check;
+    private Shoot shoot;
     #endregion
     
     #region Lives
@@ -112,6 +113,7 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<Collider2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        shoot = GetComponent<Shoot>();
 
         //check = GetComponent<GroundCheck>();
         //check.Init(col, rb);
@@ -130,6 +132,10 @@ public class PlayerController : MonoBehaviour
         //}
 
         initalJumpForce = jumpForce;
+
+
+        //recoil feature that needs some work
+        //shoot.OnShotFired += (velocity) => rb.AddForce(-velocity, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
