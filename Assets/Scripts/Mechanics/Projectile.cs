@@ -4,6 +4,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float lifetime = 10f;
+    [SerializeField] private int damage = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +24,16 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.name == "Edge")
         {
             Debug.Log("Projectile hit the ground!");
+        }
+
+        if (collision.gameObject.CompareTag("Enemy") && transform.gameObject.CompareTag("PlayerProjectile"))
+        {
+            BaseEnemy enemy = collision.gameObject.GetComponent<BaseEnemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -216,4 +216,18 @@ public class PlayerController : MonoBehaviour
         jumpForceCoroutine = null;
         currentPowerupDuration = 0f;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Squish") && rb.linearVelocityY <= 0)
+        {
+            BaseEnemy enemy = collision.GetComponentInParent<BaseEnemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(0, DamageType.JumpedOn);
+                rb.linearVelocityY = 0;
+                rb.AddForceY(jumpForce, ForceMode2D.Impulse);
+            }
+        }
+    }
 }

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Barrier
+  - PlayerProjectile
+  - Enemy
+  - Squish
   layers:
   - Default
   - TransparentFX

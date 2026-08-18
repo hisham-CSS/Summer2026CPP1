@@ -505,6 +505,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.099999905
       objectReference: {fileID: 0}
+    - target: {fileID: 7337538344811105871, guid: f526a9eeb16b9614e8222a8b81cb94f3, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
