@@ -4,10 +4,14 @@ public class Shoot : MonoBehaviour
 {
     private SpriteRenderer sr;
 
+    //assumed the projectile will be shot from the right side of the player, if the player is facing left, the projectile will use a derived left shot velocity, which is this velocity but negative in the x direction
     [SerializeField] private Vector2 initShotVelocity = new Vector2(5, 5);
     [SerializeField] private Transform spawnPointLeft;
     [SerializeField] private Transform spawnPointRight;
     [SerializeField] private Projectile projectilePrefab;
+
+    // Derived left shot velocity, which is the same as initShotVelocity but with a negative x component
+    private Vector2 leftShotVelocity;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +28,9 @@ public class Shoot : MonoBehaviour
         {
             Debug.LogError("Shoot: one or more spawn points or projectile prefab is not assigned - in order to use the shoot component - it has to be assigned");
         }
+
+        leftShotVelocity = new Vector2(-initShotVelocity.x, initShotVelocity.y);
+
     }
 
     // Update is called once per frame
@@ -45,7 +52,7 @@ public class Shoot : MonoBehaviour
         else
         {
             curProjectile = Instantiate(projectilePrefab, spawnPointLeft.position, Quaternion.identity);
-            curProjectile.SetVelocity(initShotVelocity);
+            curProjectile.SetVelocity(leftShotVelocity);
         }    
     }
 }

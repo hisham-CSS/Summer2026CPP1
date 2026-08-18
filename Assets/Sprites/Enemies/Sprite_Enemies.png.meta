@@ -9532,7 +9532,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_334
+      name: TurretFire1
       rect:
         serializedVersion: 2
         x: 800
@@ -9554,7 +9554,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_335
+      name: TurretFire2
       rect:
         serializedVersion: 2
         x: 823
@@ -9576,7 +9576,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_336
+      name: TurretFire3
       rect:
         serializedVersion: 2
         x: 852
@@ -9598,7 +9598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_337
+      name: TurretIdle
       rect:
         serializedVersion: 2
         x: 881
@@ -12194,7 +12194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_455
+      name: KoopaTurnAround
       rect:
         serializedVersion: 2
         x: 9
@@ -12216,7 +12216,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_456
+      name: KoopaWalk1
       rect:
         serializedVersion: 2
         x: 27
@@ -12238,7 +12238,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_457
+      name: KoopaWalk2
       rect:
         serializedVersion: 2
         x: 46
@@ -12458,7 +12458,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_467
+      name: KoopaDeath
       rect:
         serializedVersion: 2
         x: 250
@@ -13162,7 +13162,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_499
+      name: KoopaSquish
       rect:
         serializedVersion: 2
         x: 250
@@ -17313,6 +17313,11 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      KoopaDeath: -8320605450497437263
+      KoopaSquish: -6086775892676988321
+      KoopaTurnAround: -3308117943003608857
+      KoopaWalk1: 4096748978658626181
+      KoopaWalk2: -4655428008840287938
       PlayerProjectile: -7185912387340643949
       Sprite_Enemies_0: 764029468473576725
       Sprite_Enemies_1: -6284743126234988054
@@ -17576,10 +17581,6 @@ TextureImporter:
       Sprite_Enemies_331: -2074944620527126796
       Sprite_Enemies_332: -5660035332088033470
       Sprite_Enemies_333: -7888178152231183674
-      Sprite_Enemies_334: 6927981411972597962
-      Sprite_Enemies_335: 4627375648895073383
-      Sprite_Enemies_336: 695433566626481274
-      Sprite_Enemies_337: 6826037723698911918
       Sprite_Enemies_338: 8761235641639183874
       Sprite_Enemies_339: -1521151032509392861
       Sprite_Enemies_34: -8577990633489452866
@@ -17710,9 +17711,6 @@ TextureImporter:
       Sprite_Enemies_452: -1343037756408529362
       Sprite_Enemies_453: 765632271854523857
       Sprite_Enemies_454: -4679266561285187615
-      Sprite_Enemies_455: -3308117943003608857
-      Sprite_Enemies_456: 4096748978658626181
-      Sprite_Enemies_457: -4655428008840287938
       Sprite_Enemies_458: -4978260438847950106
       Sprite_Enemies_459: 8586962421401669945
       Sprite_Enemies_46: -7065418871120813663
@@ -17723,7 +17721,6 @@ TextureImporter:
       Sprite_Enemies_464: 7913287385506010168
       Sprite_Enemies_465: 7964933677537021469
       Sprite_Enemies_466: 8915639912924884548
-      Sprite_Enemies_467: -8320605450497437263
       Sprite_Enemies_468: -6344966185704219216
       Sprite_Enemies_469: 7294370580460699064
       Sprite_Enemies_47: -3123151676252318898
@@ -17758,7 +17755,6 @@ TextureImporter:
       Sprite_Enemies_496: -41123353217939383
       Sprite_Enemies_497: 2616282857753107902
       Sprite_Enemies_498: 7581821725142446528
-      Sprite_Enemies_499: -6086775892676988321
       Sprite_Enemies_5: -8418568836476118505
       Sprite_Enemies_50: -1605364701122387928
       Sprite_Enemies_500: 7950262757088144532
@@ -18000,6 +17996,10 @@ TextureImporter:
       Sprite_Enemies_97: -5235741533605767461
       Sprite_Enemies_98: -3146763840220451440
       Sprite_Enemies_99: 3848975548304371034
+      TurretFire1: 6927981411972597962
+      TurretFire2: 4627375648895073383
+      TurretFire3: 695433566626481274
+      TurretIdle: 6826037723698911918
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
