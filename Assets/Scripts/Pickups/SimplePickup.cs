@@ -19,7 +19,7 @@ public class SimplePickup : MonoBehaviour
             {
                 case PickupType.Health:
                     // Implement health pickup logic here
-                    player.Lives = Mathf.Min(++player.Lives, player.maxLives);
+                    GameManager.Instance.Lives = Mathf.Min(++GameManager.Instance.Lives, GameManager.Instance.maxLives);
                     Debug.Log("Picked up Health!");
                     break;
                 case PickupType.JumpBoost:
