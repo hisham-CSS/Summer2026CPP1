@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Lives
+    [Range(0, 9)]
+    public int startingLives = 3;
     public int maxLives = 9;
     private int _lives = 3;
     //C# style getters and setters - properties - they do the same thing as the above C++ style getters and setters, but they are more concise and easier to read - they are also more flexible, as they can have logic in them, and can be read-only or write-only
@@ -35,13 +37,12 @@ public class GameManager : MonoBehaviour
             else if (value < 0)
             {
                 _lives = 0;
-                //game over logic happens here
+                GameOver();
             }
             else if (value < _lives)
             {
                 _lives = value;
-                //respawn logic happens here
-                Debug.Log("Respawn logic happens here");
+                Respawn();
             }
             else
             {
@@ -59,7 +60,15 @@ public class GameManager : MonoBehaviour
     public PlayerController PlayerInstance => playerInstance;
 
     private Vector3 currentCheckpoint;
-    
+
+
+    //event driven programming: paradigm in which the flow of the program is determined by events such has user input rather than a linear sequence of instructions.  Allows for more flexibility and responsiveness in a program as it can react to event as they happen rather than waiting for a specific point in code to execute.  Events are the backbone of the observer pattern.
+
+    //Observer pattern: The Subject (object) maintains a list of dependants will notify them of any specfic event they may need to listen to. This can decouple the caller from the people requiring it as the subject does not need to know about what its dependants are doing.
+
+    //delegates are a type that represents a method or a funciton with a specific parameter list and return type.
+    public delegate void PlayerInstanceDelegate(PlayerController player);
+    public event PlayerInstanceDelegate OnPlayerSpawned;
 
     // Update is called once per frame
     void Update()
@@ -76,16 +85,36 @@ public class GameManager : MonoBehaviour
         {
             Lives++;
         }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Lives--;
+        }
     }
 
     public void SpawnPlayer(Vector3 pos)
     {
+        Lives = startingLives;
+
         playerInstance = Instantiate(playerPrefab, pos, Quaternion.identity);
+        OnPlayerSpawned?.Invoke(playerInstance);
         UpdateCheckpoint(pos);
     }
 
     public void UpdateCheckpoint(Vector3 newPos)
     {
         currentCheckpoint = newPos;
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("Game Over");
+        SceneManager.LoadScene("1.Title");
+    }
+
+    private void Respawn()
+    {
+        //this could play an animation and reload the level or do something more elaborate if you needed it to.
+        playerInstance.transform.position = currentCheckpoint;
     }
 }

@@ -14,6 +14,7 @@ public class Shoot : MonoBehaviour
     // Derived left shot velocity, which is the same as initShotVelocity but with a negative x component
     private Vector2 leftShotVelocity;
 
+    // An action is an event that can be triggered in this script and be listed to from other scripts.  The idea is when the event is triggered - the list of functions that listen to it - will also trigger one by one.
     public Action<Vector2> OnShotFired;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -3,10 +3,15 @@ using UnityEngine;
 [RequireComponent(typeof(Shoot))]
 public class TurretEnemy : BaseEnemy
 {
+    PlayerController playerInstance;
+
     [SerializeField] private float fireRate = 1f; // Time in seconds between shots
     private float timeSinceLastShot = 0f;
 
     Shoot shoot;
+
+    private void Awake() => GameManager.Instance.OnPlayerSpawned += (player) => playerInstance = player;
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
@@ -25,7 +30,7 @@ public class TurretEnemy : BaseEnemy
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         AnimatorStateInfo animState = anim.GetCurrentAnimatorStateInfo(0);
 
         if (animState.IsName("Idle"))

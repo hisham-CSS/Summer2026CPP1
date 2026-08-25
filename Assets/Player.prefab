@@ -255,7 +255,6 @@ MonoBehaviour:
   jumpForce: 7
   jumpForcePowerup: 15
   initalPowerupDuration: 5
-  maxLives: 9
 --- !u!95 &788157266477362497
 Animator:
   serializedVersion: 7
@@ -290,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdf6eecb39c35e46b0010ce4aea24a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shoot
-  initShotVelocity: {x: 10, y: 10}
+  initShotVelocity: {x: 2, y: 2}
   spawnPointLeft: {fileID: 1872144008745530489}
   spawnPointRight: {fileID: 5158530108775989914}
   projectilePrefab: {fileID: 2088459632577080139, guid: 13695d999e0088148ad6aa39aecf7933, type: 3}
