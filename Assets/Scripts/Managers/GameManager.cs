@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public int startingLives = 3;
     public int maxLives = 9;
     private int _lives = 3;
+
+    public System.Action<int> OnLivesChanged;
+
     //C# style getters and setters - properties - they do the same thing as the above C++ style getters and setters, but they are more concise and easier to read - they are also more flexible, as they can have logic in them, and can be read-only or write-only
     public int Lives
     {
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
                 _lives = value;
             }
 
+            OnLivesChanged?.Invoke(_lives);
             Debug.Log("Lives: " + _lives.ToString() + " Max Lives: " + maxLives.ToString());
 
         }

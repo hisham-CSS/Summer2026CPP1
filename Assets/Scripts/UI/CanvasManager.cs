@@ -13,7 +13,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private Button returnToMenuButton;
     [SerializeField] private Button backButton;
 
-    [Header("In Gamee UI")]
+    [Header("In Game UI")]
     [SerializeField] private TMP_Text livesText;
 
     [Header("Menu Referendces")]
@@ -41,12 +41,28 @@ public class CanvasManager : MonoBehaviour
 
         if (backButton)
             backButton.onClick.AddListener(() => SetMenu(mainMenu, settingsMenu));
+
+        if (livesText)
+        {
+            GameManager.Instance.OnLivesChanged += (lives) => livesText.text = "Lives: " + lives.ToString();
+            livesText.text = "Lives: " + GameManager.Instance.Lives.ToString();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (!pauseMenu) return;
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (pauseMenu.activeSelf)
+                SetMenu(null, pauseMenu);
+            else
+                SetMenu(pauseMenu, null);
+        }
+
     }
 
     void ChangeScene(string sceneName)
