@@ -6,6 +6,7 @@ public class TurretEnemy : BaseEnemy
     PlayerController playerInstance;
 
     [SerializeField] private float fireRate = 1f; // Time in seconds between shots
+    [SerializeField] private float detectionRange = 3f; // Range within which the turret detects the player
     private float timeSinceLastShot = 0f;
 
     Shoot shoot;
@@ -30,7 +31,18 @@ public class TurretEnemy : BaseEnemy
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+        if (!playerInstance) return;
+        sr.flipX = (playerInstance.transform.position.x < transform.position.x);
+
+        if (!CheckDistanceX())
+        {
+            sr.color = Color.white;
+            return;
+        }
+
+        sr.color = Color.red;
+
         AnimatorStateInfo animState = anim.GetCurrentAnimatorStateInfo(0);
 
         if (animState.IsName("Idle"))
@@ -42,5 +54,11 @@ public class TurretEnemy : BaseEnemy
                 anim.SetTrigger("Fire");
             }
         }
+    }
+
+    bool CheckDistanceX()
+    {
+        float distanceToPlayer = Mathf.Abs(playerInstance.transform.position.x - transform.position.x);
+        return distanceToPlayer <= detectionRange;
     }
 }

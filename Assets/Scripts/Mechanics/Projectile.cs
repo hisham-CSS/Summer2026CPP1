@@ -35,6 +35,12 @@ public class Projectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if (collision.gameObject.CompareTag("Player") && transform.gameObject.CompareTag("EnemyProjectile"))
+        {
+            GameManager.Instance.Lives--;
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
